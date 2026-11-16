@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #f4f7f9;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --muted: #eef3f6;
+  --muted-foreground: #64748b;
+  --border: #e2e8ee;
+  --primary: #006889;
+  --primary-foreground: #ffffff;
+  --up: #047857;
+  --down: #be123c;
+  --sidebar: #ffffff;
+  color-scheme: light;
+}
+
+.dark {
+  --background: #0b1220;
+  --foreground: #e8eef2;
+  --card: #111827;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --border: #1f2937;
+  --primary: #5ec4dc;
+  --primary-foreground: #042430;
+  --up: #34d399;
+  --down: #fb7185;
+  --sidebar: #0f172a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --color-sidebar: var(--sidebar);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fade-up {
+  animation: fade-up 280ms ease;
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.overlay-in {
+  animation: overlay-in 160ms ease;
+}
+
+@keyframes dialog-in {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.98); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.dialog-in {
+  transform: translate(-50%, -50%);
+  animation: dialog-in 180ms ease both;
+}
+
+@keyframes sheet-in {
+  from { transform: translateX(12px); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+
+.sheet-in {
+  animation: sheet-in 180ms ease;
+}
